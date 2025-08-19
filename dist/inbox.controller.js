@@ -32,20 +32,20 @@ let InboxController = class InboxController {
 };
 exports.InboxController = InboxController;
 __decorate([
-    (0, common_1.Get)('inbox'),
+    (0, common_1.Get)("inbox"),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], InboxController.prototype, "getInboxMessages", null);
 __decorate([
-    (0, common_1.Post)('message'),
+    (0, common_1.Post)("message"),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], InboxController.prototype, "newInboxMessage", null);
 __decorate([
-    (0, common_1.Delete)('message/:id'),
+    (0, common_1.Delete)("message/:id"),
     __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),

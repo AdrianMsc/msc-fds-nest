@@ -1,4 +1,4 @@
-import { DatabaseService } from './database/database.service';
+import { DatabaseService } from "./database/database.service";
 export declare class InboxService {
     private readonly db;
     constructor(db: DatabaseService);

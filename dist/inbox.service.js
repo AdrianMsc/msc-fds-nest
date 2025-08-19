@@ -18,13 +18,13 @@ let InboxService = class InboxService {
         this.db = db;
     }
     async getInboxMessages() {
-        const query = 'select * from feedback c order by c.created_at';
+        const query = "select * from feedback c order by c.created_at";
         return this.db.query(query);
     }
     async newInboxMessage(body) {
-        const { name, email, message, status = 'pending', read = false } = body ?? {};
+        const { name, email, message, status = "pending", read = false, } = body ?? {};
         if (!name?.trim() || !email?.trim() || !message?.trim()) {
-            throw new common_1.BadRequestException('Name, email, and message are required.');
+            throw new common_1.BadRequestException("Name, email, and message are required.");
         }
         const query = `
       INSERT INTO feedback (name, email, message, status, read)
@@ -35,18 +35,18 @@ let InboxService = class InboxService {
         const [{ id }] = await this.db.query(query, values);
         return {
             success: true,
-            message: 'Message successfully added!',
+            message: "Message successfully added!",
             data: { id, name, email, message, status, read },
         };
     }
     async deleteInboxMessage(params) {
         const { id } = params;
-        const query = 'DELETE FROM feedback WHERE id = $1 RETURNING *';
+        const query = "DELETE FROM feedback WHERE id = $1 RETURNING *";
         const result = await this.db.query(query, [id]);
         if (result.rowCount === 0 || result.length === 0) {
-            throw new common_1.NotFoundException('Message not found');
+            throw new common_1.NotFoundException("Message not found");
         }
-        return { response: 'Message deleted successfully', id };
+        return { response: "Message deleted successfully", id };
     }
 };
 exports.InboxService = InboxService;
