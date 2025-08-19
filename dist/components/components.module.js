@@ -9,8 +9,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ComponentsModule = void 0;
 const common_1 = require("@nestjs/common");
 const platform_express_1 = require("@nestjs/platform-express");
-const components_controller_1 = require("../components.controller");
-const components_service_1 = require("../components.service");
+const components_controller_1 = require("./components.controller");
+const components_service_1 = require("./components.service");
 const database_module_1 = require("../database/database.module");
 const storage_module_1 = require("../storage/storage.module");
 let ComponentsModule = class ComponentsModule {
